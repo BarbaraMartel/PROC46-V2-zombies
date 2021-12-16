@@ -29,13 +29,13 @@ function setup() {
   
   createCanvas(windowWidth,windowHeight);
 
-  //adding the background image
+  //agregando la imagen de fondo 
   bg = createSprite(displayWidth/2-20,displayHeight/2-40,20,20)
 bg.addImage(bgImg)
 bg.scale = 1.1
   
 
-//creating the player sprite
+//creando el sprite del jugador 
 player = createSprite(displayWidth-1150, displayHeight-300, 50, 50);
  player.addImage(shooterImg)
    player.scale = 0.3
@@ -43,7 +43,7 @@ player = createSprite(displayWidth-1150, displayHeight-300, 50, 50);
    player.setCollider("rectangle",0,0,300,300)
 
 
-   //creating sprites to depict lives remaining
+   //creando sprites para representar la vida sobrante
    heart1 = createSprite(displayWidth-150,40,20,20)
    heart1.visible = false
     heart1.addImage("heart1",heart1Img)
@@ -59,14 +59,14 @@ player = createSprite(displayWidth-1150, displayHeight-300, 50, 50);
     heart3.scale = 0.4
    
 
-    //creating group for zombies    
+    //creando un grupo para los zombis
     zombieGroup = new Group();
 }
 
 function draw() {
   background(0); 
 
-  //moving the player up and down and making the game mobile compatible using touches
+  //moviendo al jugador arriba y abajo: volviendolo compatible con juegos mobiles a traves de entrada tactil
 if(keyDown("UP_ARROW")||touches.length>0){
   player.y = player.y-30
 }
@@ -75,7 +75,7 @@ if(keyDown("DOWN_ARROW")||touches.length>0){
 }
 
 
-//release bullets and change the image of shooter to shooting position when space is pressed
+//liberar las balas y cambiar la imagen del tirador a posición de disparo cuando la barra espaciadora es presionada 
 if(keyWentDown("space")){
   
   player.addImage(shooter_shooting)
@@ -83,13 +83,13 @@ if(keyWentDown("space")){
  
 }
 
-//player goes back to original standing image once we stop pressing the space bar
+//el jugador regresa a la imagen de la posicion original una vez que dejamos de presionar la barra espaciadora
 else if(keyWentUp("space")){
   player.addImage(shooterImg)
 }
 
 
-//destroy zombie when player touches it
+//destruir al zombi cuando el jugador lo toca
 if(zombieGroup.isTouching(player)){
  
 
@@ -101,7 +101,7 @@ if(zombieGroup.isTouching(player)){
  }
 }
 
-//calling the function to spawn zombies
+//llamar a la funcion para generar zombis
 enemy();
 
 drawSprites();
@@ -109,11 +109,11 @@ drawSprites();
 
 
 
-//creating function to spawn zombies
+//creando la función para generar zombis
 function enemy(){
   if(frameCount%50===0){
 
-    //giving random x and y positions for zombie to appear
+    //dando posiciones "x" e "y" aleatorias para la aparicion de los zombis
     zombie = createSprite(random(500,1100),random(100,500),40,40)
 
     zombie.addImage(zombieImg)
