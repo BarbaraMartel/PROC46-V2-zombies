@@ -66,7 +66,7 @@ player = createSprite(displayWidth-1150, displayHeight-300, 50, 50);
 function draw() {
   background(0); 
 
-  //moviendo al jugador arriba y abajo: volviendolo compatible con juegos mobiles a traves de entrada tactil
+  //moviendo al jugador arriba y abajo: volviéndolo compatible con juegos mobiles a traves de entrada táctil
 if(keyDown("UP_ARROW")||touches.length>0){
   player.y = player.y-30
 }
@@ -83,7 +83,7 @@ if(keyWentDown("space")){
  
 }
 
-//el jugador regresa a la imagen de la posicion original una vez que dejamos de presionar la barra espaciadora
+//el jugador regresa a la imagen de la posición original una vez que dejamos de presionar la barra espaciadora
 else if(keyWentUp("space")){
   player.addImage(shooterImg)
 }
@@ -101,7 +101,7 @@ if(zombieGroup.isTouching(player)){
  }
 }
 
-//llamar a la funcion para generar zombis
+//llamar a la función para generar zombis
 enemy();
 
 drawSprites();
@@ -113,7 +113,7 @@ drawSprites();
 function enemy(){
   if(frameCount%50===0){
 
-    //dando posiciones "x" e "y" aleatorias para la aparicion de los zombis
+    //dando posiciones "x" e "y" aleatorias para la aparición de los zombis
     zombie = createSprite(random(500,1100),random(100,500),40,40)
 
     zombie.addImage(zombieImg)
